@@ -1,0 +1,18 @@
+def beer_song():
+    bottles = 99
+    while (bottles > 2):
+        print(str(bottles) + " bottles of beer on the wall, take one down, pass it around, " + str(bottles-1) + " bottles of beer on the wall")
+        print()
+        bottles -= 1
+    if bottles == 2:
+        print("2 bottles of beer on the wall, take one down, pass it around, 1 bottle of beer on the wall")
+        print()
+        bottles -= 1
+    if (bottles == 1):
+        print(str(bottles) + " bottle of beer on the wall, take one down, pass it around, no more bottles of beer left on the wall")
+        print()
+        print("No more bottles of beer on the wall, no more bottles of beer. Go to the store and buy some more, 99 bottles of beer on the wall.")
+    
+beer_song()
+
+

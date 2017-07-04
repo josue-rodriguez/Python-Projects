@@ -1,0 +1,23 @@
+import time
+
+def triple_checker():
+    s1 = input("Please enter the 1st angle ")
+    s2 = input("Please enter the 2nd angle ")
+    s3 = input("Please enter the 3rd angle ")
+    angles = [s1, s2, s3]
+    angles.sort()
+    if int(angles[0])**2 + int(angles[1])**2 == int(angles[2])**2:
+        print("This triangle is a Pythagorean Triple")
+    else:
+        print('This triangle is not a Pythagorean Triple')
+    time.sleep(2)
+    
+    quit = input("Would you like to quit? Y/N? ")
+    quit.lower()
+    if quit == 'y' or quit == 'yes':
+        pass
+    else:
+        triple_checker()
+        
+triple_checker()
+
