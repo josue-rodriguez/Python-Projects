@@ -9,15 +9,10 @@ class redditor(object):
     def __init__(self, name):
         self.name = name
 
-    def doIwork(self):
-        print(self.name)
-
     def getRecent(self):
-        print(r"https://www.reddit.com/user/{}/submitted/.json".format(self.name))
-        time.sleep(3)
         r = requests.get(r"https://www.reddit.com/user/{}/submitted/.json".format(self.name))
         data = r.json()
-
+        time.sleep(3)
         print(data.keys())
 
         title = data['data']['children'][0]['data']['title']
@@ -28,10 +23,10 @@ class redditor(object):
 one = input('Please enter a Reddit username: ')
 two = input('\nPlease enter another Reddit username: ')
 
-
+userone = redditor(one)
+usertwo = redditor(two)
 while True:
     try:
-        userone = redditor(one)
         userone.getRecent()
         break
     except KeyError:
@@ -39,7 +34,6 @@ while True:
 
 while True:
     try:
-        usertwo = redditor(two)
         usertwo.getRecent()
         break
     except KeyError:
