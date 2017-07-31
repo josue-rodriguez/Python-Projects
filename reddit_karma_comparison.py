@@ -12,11 +12,9 @@ class redditor(object):
     def getRecent(self):
         r = requests.get(r"https://www.reddit.com/user/{}/submitted/.json".format(self.name))
         data = r.json()
-        time.sleep(3)
-        print(data.keys())
 
         title = data['data']['children'][0]['data']['title']
-        self.score = data['data']['children'][0]['data']['ups']
+        self.score = int(data['data']['children'][0]['data']['ups'])
 
         print('Title: {}\n\nUpvotes: {}'.format(title, self.score))
 
@@ -25,9 +23,11 @@ two = input('\nPlease enter another Reddit username: ')
 
 userone = redditor(one)
 usertwo = redditor(two)
+
 while True:
     try:
         userone.getRecent()
+        time.sleep(3)
         break
     except KeyError:
         continue
@@ -35,6 +35,7 @@ while True:
 while True:
     try:
         usertwo.getRecent()
+        time.sleep(3)
         break
     except KeyError:
         continue
