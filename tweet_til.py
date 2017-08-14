@@ -3,12 +3,11 @@ import time
 import tweepy
 
 
-
-
 def get_api(vals):
   auth = tweepy.OAuthHandler(vals['consumer_key'], vals['consumer_secret'])
   auth.set_access_token(vals['access_token'], vals['access_token_secret'])
   return tweepy.API(auth)
+
 
 def tweet(title):
   vals = {
@@ -22,6 +21,7 @@ def tweet(title):
   tweet = title
   status = api.update_status(status=tweet)
 
+  
 def check_new(check):
     while True:
         try:
@@ -36,9 +36,6 @@ def check_new(check):
                 break
         except:
             continue
-
-
-
 
 
 def tweet_til():
